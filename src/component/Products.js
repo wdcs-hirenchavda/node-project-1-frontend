@@ -75,15 +75,17 @@ function Products() {
           </Form>
           <div className="my-4">
           <Row>
-          {product.length > 0 ? product.map((items) => {
+          {product.length > 0 ? product.map((items,key) => {
             return (
               <Col>
                 <Card style={{ width: "18rem" }}>
+              <ListGroup.Item>{key+1}</ListGroup.Item>
                   <Card.Header>Product Name: {items.name}</Card.Header>
                   <ListGroup variant="flush">
                     <ListGroup.Item>Price: {items.price}</ListGroup.Item>
                     <ListGroup.Item>Category: {items.category}</ListGroup.Item>
                     <ListGroup.Item>Company: {items.company}</ListGroup.Item>
+                    
                   </ListGroup>
                   <Button className="btn btn-danger" onClick={()=>{deleteProduct(items._id)}}  >Delete</Button>
                   <Link to={'/update/'+items._id} >update</Link>
